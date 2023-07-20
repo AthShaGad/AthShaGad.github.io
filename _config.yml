@@ -1,0 +1,46 @@
+# _config.yml
+
+# Site Settings
+name: Atharva Gadad
+title: Atharva Gadad - Personal Website
+description: A personal website outlining my projects and work experience
+url: https://athshagad.github.io
+baseurl: ""
+
+# Theme (if using a Jekyll theme, uncomment and specify the theme name)
+theme: jekyll-theme-cayman
+
+# Build Settings
+markdown: kramdown
+exclude: ["Gemfile", "Gemfile.lock", "node_modules", "vendor", "_site"]
+
+# Plugins (if needed, add additional plugins here)
+# plugins:
+
+# Custom Variables (add any custom variables you want to use in your site)
+# custom_variable_name: value
+
+# Navigation Links (customize your navigation links here)
+# You can add more links as needed.
+# For external links, use "url" instead of "path."
+# Example:
+# navigation_links:
+#   - name: Home
+#     path: index.html
+#   - name: About
+#     path: about.html
+#   - name: CV
+#     url: https://example.com/cv.pdf
+
+# Social Media Links (customize your social media links here)
+# For external links, use "url" instead of "username."
+# Example:
+# social_media:
+#   - name: Twitter
+#     username: yourusername
+#   - name: LinkedIn
+#     url: https://www.linkedin.com/in/yourusername
+#   - name: GitHub
+#     username: yourusername
+
+# Add any other site-specific settings or configurations below this line.
