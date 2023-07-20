@@ -5,10 +5,10 @@ name: Atharva Gadad
 title: Atharva Gadad - Personal Website
 description: A personal website outlining my projects and work experience
 url: https://athshagad.github.io
-# baseurl: ""
+baseurl: ""
 
 # Theme (if using a Jekyll theme, uncomment and specify the theme name)
-theme: midnight
+# theme: midnight
 
 # Build Settings
 markdown: kramdown
