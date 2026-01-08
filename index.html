@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharva Gadad - Data Scientist & Photographer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            min-height: 100vh;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .home-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s;
+        }
+
+        .contact-info a:hover {
+            border-color: white;
+        }
+
+        .linkedin-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .linkedin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Resume Section */
+        #resume {
+            background: white;
+        }
+
+        .summary {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience, .education, .skills, .publications {
+            margin-bottom: 3rem;
+        }
+
+        .experience h3, .education h3, .skills h3, .publications h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .job, .edu-item, .pub-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .job:hover, .edu-item:hover, .pub-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .job-date {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .job-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .job ul {
+            margin-left: 1.5rem;
+        }
+
+        .job li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-category p {
+            color: #555;
+        }
+
+        /* Photography Section */
+        #photography {
+            background: #f8f9fa;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            aspect-ratio: 4/3;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .home-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            .intro h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AG</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#photography">Photography</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="home-content">
+                <div>
+                    <!-- Replace 'profile.jpg' with your profile photo filename -->
+                    <img src="profile.jpg" alt="Atharva Gadad" class="profile-photo">
+                </div>
+                <div class="intro">
+                    <h1>Atharva Gadad</h1>
+                    <p>Senior Data Scientist | AI/ML Professional | Hobby Photographer</p>
+                    <div class="contact-info">
+                        <p>📍 Houston, TX</p>
+                        <p>📧 <a href="mailto:gadadatharva123@gmail.com">gadadatharva123@gmail.com</a></p>
+                        <p>📱 +1 (281) 935-6240</p>
+                    </div>
+                    <!-- Replace with your LinkedIn URL -->
+                    <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-btn" target="_blank">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="summary">
+                <p>Applied AI professional with strong fundamentals and proven experience in Artificial Intelligence and Machine Learning projects in fast-paced startup environments, demonstrating rapid career progression from intern to Senior Data Scientist within 2 years. Expertise in designing and building scalable data pipelines and distributed systems for large-scale data processing using PySpark, Databricks, and Apache Spark on AWS EMR. Strategic thinker with excellent communication skills and technical expertise in AI models and LLMs (ChatGPT, Llama2, Claude), cloud computing platforms (AWS, Azure), and container technologies (Docker, Kubernetes).</p>
+            </div>
+
+            <div class="experience">
+                <h3>Work Experience</h3>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Senior Data Scientist</div>
+                        <div class="job-date">Aug 2023 – Present</div>
+                    </div>
+                    <div class="job-company">Petrabytes | Houston, TX</div>
+                    <ul>
+                        <li>Promoted to Data Scientist in June 2024 and Senior Data Scientist in September 2025, demonstrating ability to lead and reliability in delivering results in a fast-paced startup environment</li>
+                        <li>Represented the company at industry conferences presenting AI/ML products and solutions, and participated in networking events to build strategic partnerships</li>
+                        <li>Collaborated directly with AWS partnership team to architect and implement cloud-based AI solutions, leveraging Bedrock, SageMaker, and other AWS services</li>
+                        <li>Presented technical solutions and product demonstrations to prospective clients, contributing to business development efforts</li>
+                        <li>Developed LLM RAG based domain specific conversational AI agents using various AI models - ChatGPT, Llama, Claude, with iterative experiments to improve performance</li>
+                        <li>Designed and built scalable Databricks data pipelines for large-scale distributed data processing, optimizing PySpark and Delta Lake code on AWS EMR</li>
+                        <li>Developed ETL pipelines using Apache Spark and PySpark for processing and transforming large datasets in distributed computing environments</li>
+                        <li>Implemented DevOps practices and continuous improvement processes for AI/ML application deployment and monitoring</li>
+                        <li>Provided mentorship to interns and contributed to team building initiatives, fostering ethical practices, technical growth, and continuous learning culture</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Research Assistant</div>
+                        <div class="job-date">Dec 2022 – Dec 2023</div>
+                    </div>
+                    <div class="job-company">Center for Pattern Recognition and Machine Learning, PESU | Bangalore, India</div>
+                    <ul>
+                        <li>Worked on the development of an AI-powered Computer Vision and Machine Learning based solution for diagnosis and stage detection of Retinopathy of Prematurity, an ocular disease in the healthcare domain</li>
+                        <li>Developed multiple AI CNN Models using fundus images obtained from Narayana Nethralaya Hospital, Bangalore for diagnosis with accuracies between 87% and 93%</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">AI/ML Summer Intern</div>
+                        <div class="job-date">Jun 2023 – Aug 2023</div>
+                    </div>
+                    <div class="job-company">Pronisi | Bangalore, India</div>
+                    <ul>
+                        <li>Worked on AI Prompt Engineering using ChatGPT and development of an AI Recommendation Engine for budding sports players based on numerical data points generated from user videos using Python</li>
+                        <li>Developed a fully overhauled version of the codebase with full ChatGPT AI integration, enabling a more engaging user experience and 75% reduction in runtimes</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Software Engineering Intern</div>
+                        <div class="job-date">Jun 2022 – Jul 2022</div>
+                    </div>
+                    <div class="job-company">Kognosdata | Bangalore, India</div>
+                    <ul>
+                        <li>Worked on Data Analysis using Python libraries, development of front-end using Vaadin (a Java web application development platform), and Java back-end programming for Petroleum Engineering software products</li>
+                        <li>Performed data analysis on Excel files and other data sources for information systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="skills">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <p>C, C++, Java, Python, HTML, CSS, JavaScript, MySQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Cloud Computing</h4>
+                        <p>AWS (SageMaker, Bedrock, EC2, RDS, S3, EMR, EKS), Azure (Blob Storage)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Big Data & Distributed Systems</h4>
+                        <p>Apache Spark, PySpark, Databricks, Delta Lake, Hadoop, AWS EMR, Large-scale data processing</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI/ML Technologies</h4>
+                        <p>ChatGPT, Llama2, Claude, LangChain, TensorFlow, Keras, Hugging Face, AI Agents, RAG Systems</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>DevOps & Containers</h4>
+                        <p>Docker, Kubernetes, DevOps practices, Continuous Integration</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Data Science Tools</h4>
+                        <p>Jupyter Notebook, Data Analysis, Data Visualization</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education">
+                <h3>Education</h3>
+                <div class="edu-item">
+                    <div class="job-header">
+                        <div class="job-title">BS in Computer Science and Engineering (Information Systems)</div>
+                        <div class="job-date">2020 – 2024</div>
+                    </div>
+                    <div class="job-company">PES University | Bangalore, India</div>
+                    <p><strong>GPA: 9.81/10</strong></p>
+                    <ul>
+                        <li>Graduated in the top 1% of the class (ranked 9th amongst 1,320 students)</li>
+                        <li>Awarded the CNR Scholarship for consistent academic excellence, ranking in the top 1% of the student body every semester, covering 40% of tuition fees</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="publications">
+                <h3>Publications</h3>
+                <div class="pub-item">
+                    <p><strong>Accelerating Unstructured and Semi-Structured Data Insights with Generative AI</strong></p>
+                    <p>EAGE Digital 2025</p>
+                    <p><em>Authors: Sashi Gunturu, Atharva Gadad, Yuriy Gubanov, Dmitriy Tishechkin</em></p>
+                </div>
+                <div class="pub-item">
+                    <p><strong>Deep Learning for Classifying Stages of Retinopathy of Prematurity</strong></p>
+                    <p>AMATHE 2024</p>
+                    <p><em>Authors: Ayush Satish Govind, Atharva Gadad, Dhruv Jyoti Garodia, Ayush Gupta, Anand Vinekar, Gowri Srinivasa</em></p>
+                </div>
+                <div class="pub-item">
+                    <p><strong>A Pugnacious Comparative Study of Data Analysis Techniques for Wine Quality Prediction</strong></p>
+                    <p>I2CT 2024</p>
+                    <p><em>Authors: Dhruv Jyoti Garodia, Atharva Gadad, Aaditya Vikram</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section id="photography">
+        <div class="container">
+            <h2>Photography</h2>
+            <p style="margin-bottom: 2rem; color: #555;">A collection of moments captured through my lens.</p>
+            
+            <div class="photo-gallery">
+                <!-- Add your photos to a 'photos' folder and list them here -->
+                <!-- Example photos - replace with your actual photo filenames -->
+                <div class="photo-item">
+                    <img src="photos/photo1.jpg" alt="Photography 1">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/photo2.jpg" alt="Photography 2">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/photo3.jpg" alt="Photography 3">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/photo4.jpg" alt="Photography 4">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/photo5.jpg" alt="Photography 5">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/photo6.jpg" alt="Photography 6">
+                </div>
+                <!-- Add more photo-item divs as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Atharva Gadad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
